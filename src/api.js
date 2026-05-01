@@ -8,27 +8,20 @@ async function fetchWeatherData(city) {
     const weatherData = await response.json();
 
     const { lat, lon } = weatherData.coord;
-    const cloudCover = weatherData.clouds.all;
 
-    const uvUrl = `${BASE_URL}/uvi?lat=${lat}&lon=${lon}&appid=${API_KEY}`;
-    const uvResponse = await fetch(uvUrl);
-    const uvData = await uvResponse.json();
-    const clearSkyUv = uvData.value;
-
-    //The Cloud Attenuation Algorithm
-    let actualUv = clearSkyUv;
-    // Only reduce UV if there is significant cloud cover (>20%)
-    if (cloudCover > 20) {
-        // At 100% overcast, this math reduces the UV by 55%
-        const attenuationFactor = 1 - ((cloudCover / 100) * 0.55);
-        actualUv = clearSkyUv * attenuationFactor;
+    const openMeteoUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=uv_index`;
+    try {
+        const uvResponse = await fetch(openMeteoUrl);
+        const uvData = await uvResponse.json();
+        weatherData.uv = uvData.current.uv_index; 
+    } catch (e) {
+        console.warn("Failed to fetch UV from Open-Meteo, defaulting to 0");
+        weatherData.uv = 0;
     }
 
     const forecastUrl = `${BASE_URL}/forecast?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=imperial`;
     const forecastResponse = await fetch(forecastUrl);
     const forecastData = await forecastResponse.json();
-
-    weatherData.uv = Math.round(actualUv * 100) / 100;
     
     weatherData.pop = Math.round((forecastData.list[0].pop || 0) * 100);
 
