@@ -1,0 +1,90 @@
+/* Custom Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+:root {
+    --bg-dark: #050505;
+    --card-dark: #111111;
+    --accent-green: #00ff4c;
+    --glow-green: rgba(0, 255, 76, 0.2); 
+    --text-muted: #555555;
+}
+
+body.night-mode {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--accent-green);
+    min-height: 100vh;
+}
+
+/* Header & Titles - Adding a 'Digital' feel */
+h1, h2, h3, h4, .display-4, .display-1 {
+    color: var(--accent-green) !important;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px var(--glow-green);
+}
+
+/* The Main Weather Card */
+#weather-container .card {
+    background-color: var(--card-dark) !important;
+    border: 1px solid #222 !important;
+    border-top: 3px solid var(--accent-green) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Detailed Stats - Small Cards */
+.details-grid .card {
+    border: 1px solid #1a1a1a !important;
+    transition: all 0.3s ease;
+}
+
+.details-grid .card:hover {
+    border-color: var(--accent-green) !important;
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px var(--glow-green);
+}
+
+/* Inputs - Making them look like a terminal */
+.form-control {
+    background-color: #0f0f0f !important;
+    border: 1px solid #222 !important;
+    color: var(--accent-green) !important;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#city-input:focus {
+    border-color: var(--accent-green) !important;
+    box-shadow: 0 0 10px var(--glow-green);
+}
+
+#city-input::placeholder {
+    color: #333 !important;
+}
+
+/* Button - Solid Green with Black Text */
+.btn-primary {
+    background-color: var(--accent-green) !important;
+    border: none !important;
+    color: #000 !important;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.btn-primary:hover {
+    background-color: #00cc3d !important;
+    box-shadow: 0 0 20px var(--accent-green);
+}
+
+/* Icons & Visuals */
+.bi {
+    color: var(--accent-green) !important;
+}
+
+#weather-icon {
+    filter: brightness(0) saturate(100%) invert(64%) sepia(93%) saturate(1637%) hue-rotate(85deg) brightness(108%) contrast(115%);
+    filter: drop-shadow(0 0 10px var(--accent-green));
+}
+
+.text-muted {
+    color: #666 !important;
+}

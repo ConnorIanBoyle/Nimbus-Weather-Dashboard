@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nimbus | Weather Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="night-mode">
+
+    <div class="container py-5">
+        <header class="text-center mb-5">
+            <h1 class="display-4 fw-bold text-primary">Nimbus</h1>
+            <p class="lead">Get real-time weather updates for any city</p>
+            
+            <div class="row justify-content-center mt-4">
+                <div class="col-md-6">
+                    <div class="input-group input-group-lg shadow-sm">
+                        <input type="text" id="city-input" class="form-control" placeholder="Enter city name..." aria-label="City Name">
+                        <button class="btn btn-primary" type="button" id="search-btn">
+                            <i class="bi bi-search"></i> Search
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main id="weather-container" class="row g-4 justify-content-center d-none">
+            
+            <div class="col-md-8 col-lg-6">
+                <div class="card border-0 shadow-lg text-white bg-primary text-center">
+                    <div class="card-body p-5">
+                        <h2 id="city-name" class="card-title display-5 mb-0">London</h2>
+                        <p id="current-date" class="opacity-75 mb-4">Monday, 27 April</p>
+                        
+                        <div class="d-flex justify-content-center align-items-center mb-4">
+                            <img id="weather-icon" src="https://openweathermap.org/img/wn/10d@4x.png" alt="Weather Icon">
+                            <h1 id="temperature" class="display-1 fw-bold mb-0">22°C</h1>
+                        </div>
+                        
+                        <h3 id="description" class="text-capitalize h4">Scattered Clouds</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-8 col-lg-6">
+                <div class="row g-3">
+                    <div class="col-6">
+                        <div class="card border-0 shadow-sm text-center p-3 h-100">
+                            <i class="bi bi-droplets-fill text-info h2"></i>
+                            <p class="text-muted mb-1">Humidity</p>
+                            <h4 id="humidity" class="fw-bold">45%</h4>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="card border-0 shadow-sm text-center p-3 h-100">
+                            <i class="bi bi-wind text-secondary h2"></i>
+                            <p class="text-muted mb-1">Wind Speed</p>
+                            <h4 id="wind-speed" class="fw-bold">12 km/h</h4>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="card border-0 shadow-sm text-center p-3 h-100">
+                            <i class="bi bi-thermometer-half text-danger h2"></i>
+                            <p class="text-muted mb-1">Feels Like</p>
+                            <h4 id="feels-like" class="fw-bold">20°C</h4>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="card border-0 shadow-sm text-center p-3 h-100">
+                            <i class="bi bi-eye-fill text-warning h2"></i>
+                            <p class="text-muted mb-1">Visibility</p>
+                            <h4 id="visibility" class="fw-bold">10 km</h4>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="card border-0 shadow-sm text-center p-3 h-100">
+                            <i class="bi bi-cloud-rain-heavy text-info h2"></i>
+                            <p class="text-muted mb-1">3-Hour Precipitation</p>
+                            <h4 id="precipitation" class="fw-bold">0%</h4>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="card border-0 shadow-sm text-center p-3 h-100">
+                            <i class="bi bi-sun-fill text-warning h2"></i>
+                            <p class="text-muted mb-1">UV Index</p>
+                            <h4 id="uv-index" class="fw-bold">0</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <div id="error-message" class="alert alert-danger mt-4 d-none text-center mx-auto" style="max-width: 500px;">
+            Could not find that city. Please try again!
+        </div>
+    </div>
+
+    <script src="src/api.js"></script>
+    <script src="src/ui.js"></script>
+    <script src="src/app.js"></script>
+</body>
+</html>
