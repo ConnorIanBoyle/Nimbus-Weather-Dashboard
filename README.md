@@ -1,6 +1,6 @@
 # Nimbus - Real-Time Weather Dashboard
 
-Nimbus is a sleek, dark-themed weather dashboard built with Vanilla JavaScript, HTML5, and Bootstrap. It fetches real-time meteorological data from the OpenWeatherMap API to provide current conditions, detailed weather metrics, and a custom-calculated UV index.
+Nimbus is a sleek, dark-themed weather dashboard built with Vanilla JavaScript, HTML5, and Bootstrap. It fetches real-time meteorological data from the OpenWeatherMap API to provide current conditions, detailed weather metrics, and highly accurate UV data via multi-API integration.
 
 ## Features
 * **Real-Time Search:** Get current weather data for any global city.
@@ -14,8 +14,8 @@ Nimbus is a sleek, dark-themed weather dashboard built with Vanilla JavaScript, 
 ## Data Calculations & Accuracy Disclaimer
 To provide a rich user experience using OpenWeatherMap's free API tier (v2.5), this application utilizes **API chaining** and **custom algorithms**. As a result, some data points are approximations and may differ slightly from premium weather services:
 
-1. **UV Index (Cloud Attenuation Algorithm):**
-    The free OpenWeatherMap UV endpoint returns a "Clear Sky" UV Index, which ignores real-time cloud cover. To provide a more accurate, real-world UV rating, Nimbus uses a custom mathematical algorithm. It fetches the current cloud cover percentage and applies an attenuation factor (reducing the UV by up to 55% during heavy overcast conditions). *This is an estimation and should not be used for medical or strict health purposes.*
+1. **UV Index (API Chaining):**
+   Because the free tier of OpenWeatherMap lacks real-time, cloud-adjusted UV data, Nimbus utilizes multi-API chaining. It passes the localized coordinates from OpenWeatherMap directly into the Open-Meteo API to fetch a highly accurate, scientifically modeled UV Index without requiring premium API keys.
 
 2. **Precipitation Probability (PoP):**
    Because the standard "Current Weather" endpoint does not include precipitation chance, Nimbus makes a secondary call to the 5-Day/3-Hour Forecast endpoint. The percentage shown represents the *probability of precipitation in the current 3-hour window*, rather than a live radar reading.
@@ -31,7 +31,7 @@ To provide a rich user experience using OpenWeatherMap's free API tier (v2.5), t
 * **Framework:** Bootstrap 5.3 (via CDN)
 * **Icons:** Bootstrap Icons
 * **JavaScript:** Vanilla JS (ES6 Modules, Async/Await, Fetch API)
-* **API:** OpenWeatherMap API (Current Weather, Forecast, and UV endpoints)
+* **APIs:** OpenWeatherMap API (Current Weather, 3-Hour Forecast) & Open-Meteo API (Real-Time UV Index)
 
 ## Installation and Setup
 
