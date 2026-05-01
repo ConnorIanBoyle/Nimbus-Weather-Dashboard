@@ -32,6 +32,14 @@ async function fetchWeatherData(city) {
     
     weatherData.pop = Math.round((forecastData.list[0].pop || 0) * 100);
 
+    weatherData.hourlyForecast = forecastData.list.slice(0, 8).map(item => {
+        return {
+            time: new Date(item.dt * 1000).toLocaleTimeString('en-US', { hour: 'numeric', hour12: true }),
+            temp: Math.round(item.main.temp),
+            icon: item.weather[0].icon
+        };
+    });
+
     return weatherData;
 }
 
@@ -47,6 +55,7 @@ function formatWeatherData(data) {
         icon: data.weather[0].icon,
         uv: data.uv,
         pop: data.pop,
+        hourlyForecast: data.hourlyForecast,
         date: new Date().toLocaleDateString('en-US', {
             weekday: 'long',
             month: 'long',

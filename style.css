@@ -16,15 +16,13 @@ body.night-mode {
     min-height: 100vh;
 }
 
-/* Header & Titles - Adding a 'Digital' feel */
-h1, h2, h3, h4, .display-4, .display-1 {
+h1, h2, h3, h4, h5, .display-4, .display-1 {
     color: var(--accent-green) !important;
     letter-spacing: 2px;
     text-transform: uppercase;
     text-shadow: 0 0 10px var(--glow-green);
 }
 
-/* The Main Weather Card */
 #weather-container .card {
     background-color: var(--card-dark) !important;
     border: 1px solid #222 !important;
@@ -32,7 +30,6 @@ h1, h2, h3, h4, .display-4, .display-1 {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-/* Detailed Stats - Small Cards */
 .details-grid .card {
     border: 1px solid #1a1a1a !important;
     transition: all 0.3s ease;
@@ -44,10 +41,9 @@ h1, h2, h3, h4, .display-4, .display-1 {
     box-shadow: 0 0 15px var(--glow-green);
 }
 
-/* Inputs - Making them look like a terminal */
 .form-control {
     background-color: #0f0f0f !important;
-    border: 1px solid #222 !important;
+    border: 1px solid #777777 !important;
     color: var(--accent-green) !important;
     font-family: 'Courier New', Courier, monospace;
 }
@@ -58,10 +54,9 @@ h1, h2, h3, h4, .display-4, .display-1 {
 }
 
 #city-input::placeholder {
-    color: #333 !important;
+    color: #777777 !important;
 }
 
-/* Button - Solid Green with Black Text */
 .btn-primary {
     background-color: var(--accent-green) !important;
     border: none !important;
@@ -75,7 +70,6 @@ h1, h2, h3, h4, .display-4, .display-1 {
     box-shadow: 0 0 20px var(--accent-green);
 }
 
-/* Icons & Visuals */
 .bi {
     color: var(--accent-green) !important;
 }
@@ -86,5 +80,49 @@ h1, h2, h3, h4, .display-4, .display-1 {
 }
 
 .text-muted {
-    color: #666 !important;
+    color: #a0a0a0 !important;
+}
+
+#hourly-container {
+    scroll-behavior: smooth;
+}
+
+.hourly-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid #222;
+    padding: 0.5rem 0; 
+    min-width: 70px;
+}
+
+.hourly-item:last-child {
+    border-right: none;
+}
+
+.hourly-icon {
+    width: 50px;
+    height: 50px;
+    filter: brightness(0) saturate(100%) invert(64%) sepia(93%) saturate(1637%) hue-rotate(85deg) brightness(108%) contrast(115%) drop-shadow(0 0 5px var(--accent-green));
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+    height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: #0f0f0f; 
+    border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: var(--glow-green); 
+    border-radius: 10px;
+    transition: background 0.3s ease;
+}
+
+.custom-scrollbar:hover::-webkit-scrollbar-thumb {
+    background: var(--accent-green); 
 }
