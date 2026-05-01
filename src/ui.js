@@ -27,16 +27,13 @@ function renderWeather(data) {
     else if (data.uv > 3) uvElement.style.color = '#ffa500';
     else uvElement.style.color = '#00ff4c';
 
-    // Update Hourly/3-Hour Forecast
     const hourlyContainer = document.querySelector('#hourly-container');
-    hourlyContainer.innerHTML = ''; // Clear previous results
+    hourlyContainer.innerHTML = '';
 
     data.hourlyForecast.forEach(forecast => {
-        // Create a new div for each block
         const forecastElement = document.createElement('div');
         forecastElement.classList.add('hourly-item');
         
-        // Inject the HTML template
         forecastElement.innerHTML = `
             <p class="text-muted mb-1 small fw-bold">${forecast.time}</p>
             <img class="hourly-icon my-1" src="https://openweathermap.org/img/wn/${forecast.icon}.png" alt="Forecast Icon">
