@@ -7,6 +7,7 @@ Nimbus is a sleek, dark-themed weather dashboard built with Vanilla JavaScript, 
 * **Cyber-Dark UI:** A modern, high-contrast interface featuring "Electric Lime" accents and glassmorphism elements.
 * **Detailed Metrics:** Displays Temperature, Feels Like, Humidity, Wind Speed, Visibility, Precipitation Probability, and UV Index.
 * **24-Hour Forecast Timeline:** A dynamically generated, horizontally scrolling widget displaying the temperature and weather conditions in 3-hour intervals for the next 24 hours.
+* **Recent Searches:** Automatically saves and alphabetizes your most recent searches using browser `localStorage`, featuring clickable, state-aware UI tags.
 * **Dynamic Iconography:** Weather icons dynamically update and apply custom CSS filters to match the application's neon aesthetic.
 * **Responsive Design:** Fully optimized for mobile, tablet, and desktop viewing using Bootstrap's grid system.
 
@@ -69,4 +70,3 @@ nimbus-weather/
 * Add a toggle for Celsius / Fahrenheit.
 * Add a 5-day visual forecast chart using Chart.js.
 * Implement Geolocation API to automatically load the user's local weather on startup.
-* Add `localStorage` to save the user's most recently searched cities.

@@ -74,8 +74,7 @@ h1, h2, h3, h4, h5, .display-4, .display-1 {
 }
 
 #weather-icon {
-    filter: brightness(0) saturate(100%) invert(64%) sepia(93%) saturate(1637%) hue-rotate(85deg) brightness(108%) contrast(115%);
-    filter: drop-shadow(0 0 10px var(--accent-green));
+    filter: brightness(0) saturate(100%) invert(64%) sepia(93%) saturate(1637%) hue-rotate(85deg) brightness(108%) contrast(115%) drop-shadow(0 0 10px var(--accent-green));
 }
 
 .text-muted {
@@ -124,4 +123,29 @@ h1, h2, h3, h4, h5, .display-4, .display-1 {
 
 .custom-scrollbar:hover::-webkit-scrollbar-thumb {
     background: var(--accent-green); 
+}
+
+.recent-pill {
+    background-color: #111;
+    border: 1px solid #333;
+    color: var(--text-muted);
+    padding: 0.35rem 1rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.recent-pill:hover {
+    border-color: var(--accent-green);
+    color: var(--accent-green) !important;
+    box-shadow: 0 0 8px var(--glow-green);
+    background-color: #050505;
+}
+
+.recent-pill.active {
+    border-color: var(--accent-green);
+    color: var(--accent-green) !important;
+    background-color: rgba(0, 255, 76, 0.1);
+    box-shadow: 0 0 10px var(--glow-green);
 }
